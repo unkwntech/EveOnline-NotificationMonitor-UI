@@ -21,7 +21,7 @@ import {
 
 const redirectOauth = () =>
     window.location.assign(
-        "https://login.eveonline.com/v2/oauth/authorize?response_type=code&client_id=91407ce2465e47a2b0d3844fa801f15c&redirect_uri=http://notifs.ibns.tech/%23/auth-callback/&scope=esi-search.search_structures.v1 esi-universe.read_structures.v1 esi-corporations.read_structures.v1 esi-characters.read_notifications.v1&state=asdf123".replace(
+        "https://login.eveonline.com/v2/oauth/authorize?response_type=code&client_id=91407ce2465e47a2b0d3844fa801f15c&redirect_uri=https://notifs.ibns.tech/%23/auth-callback&scope=esi-search.search_structures.v1 esi-universe.read_structures.v1 esi-corporations.read_structures.v1 esi-characters.read_notifications.v1&state=asdf123".replace(
             " ",
             "%20"
         )

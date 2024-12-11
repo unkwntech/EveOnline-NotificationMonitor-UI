@@ -39,7 +39,7 @@ export const authProvider: AuthProvider = {
         if (!localStorage.getItem("user") || !localStorage.getItem("jwt")) {
             //redirect to oauth flow
             window.location.assign(
-                `https://login.eveonline.com/v2/oauth/authorize/?response_type=code&state=${newGuid()}&client_id=91407ce2465e47a2b0d3844fa801f15c&redirect_uri=http://localhost:5173/%23/auth-callback&scopes=${SCOPES.join("%20")}`
+                `https://login.eveonline.com/v2/oauth/authorize/?response_type=code&state=${newGuid()}&client_id=91407ce2465e47a2b0d3844fa801f15c&redirect_uri=https://notifs.ibns.tech/%23/auth-callback&scopes=${SCOPES.join("%20")}`
             );
             return Promise.reject();
         }
@@ -59,9 +59,17 @@ export const authProvider: AuthProvider = {
             throw new Error("Invalid Callback");
         }
 
+        let jwt = localStorage.getItem("jwt");
+        let options: { [key: string]: any } = {};
+        if (jwt) {
+            options.headers = {
+                Authorization: `Bearer ${jwt}`,
+            };
+        }
         //send code to api and get JWT in response
         await fetch(
-            `http://localhost:3333/api/oauth/callback/?code=${params.get("code")}`
+            `https://notifs.ibns.tech:8005/api/oauth/callback/?code=${params.get("code")}`,
+            options
         )
             .then((res) => res.json())
             .then((res: any) => {

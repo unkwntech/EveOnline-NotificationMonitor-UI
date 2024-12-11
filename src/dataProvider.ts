@@ -31,7 +31,7 @@ export const dataProvider = {
         const token = localStorage.getItem("jwt");
         if (!token) return Promise.reject();
 
-        return fetch(`http://localhost:3333/api/${resource}/`, {
+        return fetch(`https://notifs.ibns.tech:8005/api/${resource}/`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -53,11 +53,14 @@ export const dataProvider = {
         const token = localStorage.getItem("jwt");
         if (!token) return Promise.reject();
 
-        return fetch(`http://localhost:3333/api/${resource}/${params.id}`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        })
+        return fetch(
+            `https://notifs.ibns.tech:8005/api/${resource}/${params.id}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        )
             .then((res) => res.json())
             .then((res: any) => {
                 return {
@@ -74,11 +77,14 @@ export const dataProvider = {
         const token = localStorage.getItem("jwt");
         if (!token) return Promise.reject();
 
-        return fetch(`http://localhost:3333/api/${resource}/${params.ids}`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        })
+        return fetch(
+            `https://notifs.ibns.tech:8005/api/${resource}/${params.ids}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        )
             .then((res) => res.json())
             .then((res: any) => {
                 return {
@@ -95,11 +101,14 @@ export const dataProvider = {
         const token = localStorage.getItem("jwt");
         if (!token) return Promise.reject();
 
-        return fetch(`http://localhost:3333/api/${resource}/${params.id}`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        })
+        return fetch(
+            `https://notifs.ibns.tech:8005/api/${resource}/${params.id}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        )
             .then((res) => ShapeManyData(res.json()))
             .then((res: any) => {
                 return {
