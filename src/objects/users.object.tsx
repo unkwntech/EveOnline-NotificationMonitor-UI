@@ -19,12 +19,27 @@ import {
     useRecordContext,
 } from "react-admin";
 
+const SCOPES = [
+    "esi-characters.read_notifications.v1",
+    "esi-corporations.read_structures.v1",
+    "esi-search.search_structures.v1",
+    "esi-universe.read_structures.v1",
+];
+
+const newGuid = () => {
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+        /[xy]/g,
+        function (c) {
+            var r = (Math.random() * 16) | 0,
+                v = c == "x" ? r : (r & 0x3) | 0x8;
+            return v.toString(16);
+        }
+    );
+};
+
 const redirectOauth = () =>
     window.location.assign(
-        "https://login.eveonline.com/v2/oauth/authorize?response_type=code&client_id=91407ce2465e47a2b0d3844fa801f15c&redirect_uri=https://notifs.ibns.tech/%23/auth-callback&scope=esi-search.search_structures.v1 esi-universe.read_structures.v1 esi-corporations.read_structures.v1 esi-characters.read_notifications.v1&state=asdf123".replace(
-            " ",
-            "%20"
-        )
+        `https://login.eveonline.com/v2/oauth/authorize/?response_type=code&state=${newGuid()}&client_id=91407ce2465e47a2b0d3844fa801f15c&redirect_uri=https://notifs.ibns.tech/%23/auth-callback&scope=${SCOPES.join("%20")}`
     );
 
 const CreateMenuItemButton = () => (

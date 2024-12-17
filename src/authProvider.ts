@@ -39,7 +39,7 @@ export const authProvider: AuthProvider = {
         if (!localStorage.getItem("user") || !localStorage.getItem("jwt")) {
             //redirect to oauth flow
             window.location.assign(
-                `https://login.eveonline.com/v2/oauth/authorize/?response_type=code&state=${newGuid()}&client_id=91407ce2465e47a2b0d3844fa801f15c&redirect_uri=https://notifs.ibns.tech/%23/auth-callback&scopes=${SCOPES.join("%20")}`
+                `https://login.eveonline.com/v2/oauth/authorize/?response_type=code&state=${newGuid()}&client_id=91407ce2465e47a2b0d3844fa801f15c&redirect_uri=https://notifs.ibns.tech/%23/auth-callback&scope=${SCOPES.join("%20")}`
             );
             return Promise.reject();
         }
