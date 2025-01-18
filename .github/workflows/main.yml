@@ -24,6 +24,7 @@ jobs:
                   SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
             - name: Build
               run: |
+                  npm i
                   npm run build
             - name: Deploy
               run: |
