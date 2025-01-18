@@ -28,7 +28,7 @@ jobs:
                   npm run build
             - name: Deploy
               run: |
-                  scp -i deploy.key ./dist/* github@$DEPLOY_TARGET"public/"
+                  scp -i deploy.key -r ./dist/* github@$DEPLOY_TARGET"public/"
               env:
                   DEPLOY_TARGET: ${{secrets.DEPLOY_TARGET}}
 
