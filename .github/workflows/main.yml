@@ -10,7 +10,6 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v3
-            - uses: Tyler887/TypeScript-GitHub-Actions@1.0
             #   - name: Run Tests
             #     run: |
             - name: Set up SSH
