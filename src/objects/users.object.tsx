@@ -62,6 +62,7 @@ export const CharacterList = () => (
         <Datagrid>
             <TextField source="name" />
             <BooleanField source="isMain" label="Main" />
+            <BooleanField source="token.isActive" label="Active" />
             <DeleteButton />
         </Datagrid>
     </List>
