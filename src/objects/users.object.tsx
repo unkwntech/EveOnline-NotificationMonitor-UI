@@ -5,6 +5,7 @@ import {
     Button,
     Create,
     Datagrid,
+    DateField,
     DeleteButton,
     Edit,
     List,
@@ -63,6 +64,7 @@ export const CharacterList = () => (
             <TextField source="name" />
             <BooleanField source="isMain" label="Main" />
             <BooleanField source="token.isActive" label="Active" />
+            <DateField source="token.lastUsed" label ="Last Used" />
             <TextField source="token.etag" label="ETag" />
             <DeleteButton />
         </Datagrid>
